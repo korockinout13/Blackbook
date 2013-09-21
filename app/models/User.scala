@@ -46,8 +46,6 @@ object User {
     def hasPermission(perm: Permission.Value): Boolean
     def hasPermissions(perms: Permission.Set): Boolean =
       perms.forall(hasPermission)
-    def hasSomePermission(perms: Permission.Set): Boolean = 
-      perms.exists(hasPermission)
     def hasRole(role: Permission.Set): Boolean = 
       hasPermissions(role)
 
@@ -65,7 +63,7 @@ object User {
   case class TestUser() extends User {
     def name() = "test"
     def password() = "secret"
-    def enabled() = true
+    def enabled() = false
     def hasPermission(perm: Permission.Value) = true
   }
 
