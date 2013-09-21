@@ -42,13 +42,13 @@ trait Secured {
   case class WithPermissions(perms: Permission.Set = Permission.Set.empty)
     extends WithUserPredicate({ user => user.hasPermissions(perms) })
 
-  case class WithSomePermission(perms: Permission.Set = Permission.values) 
+  case class WithPermission(perms: Permission.Set = Permission.values) 
     extends WithUserPredicate({ user => user.hasSomePermission(perms) })
 
   def WithPermission(perms: Permission.Set = Permission.Set.empty) =
     WithPermissions(perms)
 
-  def WithSomePermissions(perms: Permission.Set = Permission.values) = 
+  def WithPermissions(perms: Permission.Set = Permission.values) = 
     WithSomePermission(perms)
 }
 
