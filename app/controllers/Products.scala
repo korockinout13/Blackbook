@@ -19,13 +19,13 @@ object Products extends Controller with Secured {
           "description" -> nonEmptyText)
   )
   
-  def products = WithSomePermission(Perm.ViewProducts + Perm.EditProducts) 
+  def products = WithPermission(Perm.ViewProducts + Perm.EditProducts) 
   { implicit request => 
     Ok(views.html.products.index(Product.all()))
   }
   
   def viewProduct(id: Long) = 
-    WithSomePermission(Perm.ViewProducts + Perm.EditProducts)
+    WithPermission(Perm.ViewProducts + Perm.EditProducts)
   { implicit request => 
     val product = Product.find(id)
     product match { 
