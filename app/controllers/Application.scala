@@ -80,7 +80,7 @@ object Application extends Controller with Secured {
      Ok(views.html.order())
   }
 
-  def javascriptRoutes = WithSomePermissions()
+  /*def javascriptRoutes = WithSomePermissions()
   { implicit request =>
     import controllers.api.routes.{javascript => capi}
     import controllers.routes.{javascript => c}
@@ -110,7 +110,7 @@ object Application extends Controller with Secured {
         c.Users.viewUser
       )
     ).as("text/javascript")
-  }
+  }*/
   
 }
 
